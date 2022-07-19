@@ -4,15 +4,37 @@
 <script>
 
 alert("Enter message after following prompt");
-var a = prompt("Enter message", "");
-alert(a);
-var xhr = new XMLHttpRequest();
-xhr.open("POST", 'http://crapchat.epizy.com/test.php', true);
-xhr.setRequestHeader('Content-Type', 'application/json');
-xhr.send(JSON.stringify({
-    value: a
-}));
-alert(Date());
+const btn = document.querySelector('button');
+
+function sendData( data ) {
+  const XHR = new XMLHttpRequest(),
+        FD  = new FormData();
+
+  // Push our data into our FormData object
+  for( name in data ) {
+    FD.append( name, data[ name ] );
+  }
+
+  // Define what happens on successful data submission
+  XHR.addEventListener( 'load', function( event ) {
+    alert( 'Yeah! Data sent and response loaded.' );
+  } );
+
+  // Define what happens in case of error
+  XHR.addEventListener(' error', function( event ) {
+    alert( 'Oops! Something went wrong.' );
+  } );
+
+  // Set up our request
+  XHR.open( 'POST', 'https://example.com/cors.php' );
+
+  // Send our FormData object; HTTP headers are set automatically
+  XHR.send( FD );
+}
+
+btn.addEventListener( 'click', function()
+  { sendData( {test:'ok'} );
+} )
    
 </script> 
 
