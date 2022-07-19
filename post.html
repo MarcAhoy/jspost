@@ -1,42 +1,25 @@
 <!DOCTYPE html>
 <html>
 <body>
-<script>
-
+<script language="JavaScript">
+<!--
 alert("Enter message after following prompt");
-const btn = document.querySelector('button');
-
-function sendData( data ) {
-  const XHR = new XMLHttpRequest(),
-        FD  = new FormData();
-
-  // Push our data into our FormData object
-  for( name in data ) {
-    FD.append( name, data[ name ] );
-  }
-
-  // Define what happens on successful data submission
-  XHR.addEventListener( 'load', function( event ) {
-    alert( 'Yeah! Data sent and response loaded.' );
-  } );
-
-  // Define what happens in case of error
-  XHR.addEventListener(' error', function( event ) {
-    alert( 'Oops! Something went wrong.' );
-  } );
-
-  // Set up our request
-  XHR.open( 'POST', 'https://example.com/cors.php' );
-
-  // Send our FormData object; HTTP headers are set automatically
-  XHR.send( FD );
-}
-
-btn.addEventListener( 'click', function()
-  { sendData( {test:'ok'} );
-} )
+document.writeln("<!DOCTYPE html>");
+document.writeln("html>");
+document.writeln("body>");
+document.writeln("<h2>HTML Forms</h2>");
+document.writeln("<form action=/"/action_page.php/">");
+document.writeln(" <label for=/"fname/">First name:</label><br>");
+document.writeln(" <input type=/"text/" id=/"fname/" name=/"fname/" value=/"John/"><br>");
+document.writeln(" <label for=/"lname/">Last name:</label><br>");
+document.writeln(" <input type=/"text/" id=/"lname/" name=/"lname/" value=/"Doe/"><br><br>");
+document.writeln(" <input type=/"submit/" value=/"Submit/">");
+document.writeln("/form> ");
+document.writeln("<p>If you click the /"Submit/" button, the form-data will be sent to a page called /"/action_page.php/".</p>");
+document.writeln("</body>");
+document.writeln("/html>");
+//-->
+</script>
    
-</script> 
-<button>post</button>
 </body>
 </html>
